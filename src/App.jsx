@@ -1,7 +1,10 @@
+// src/App.jsx
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
-import { Booking } from "./components/Booking"; 
+import { Booking } from "./components/Booking";
+import { BookingPage } from "./components/BookingPage";
 import { Features } from "./components/features";
 import { About } from "./components/about";
 import { Services } from "./components/services";
@@ -25,18 +28,36 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Navigation />
-      <Header data={landingPageData.Header} />
-      <Booking />
-      <Features data={landingPageData.Features} />
-      <About data={landingPageData.About} />
-      <Services data={landingPageData.Services} />
-      <Gallery data={landingPageData.Gallery} />
-      <Testimonials data={landingPageData.Testimonials} />
-      <Team data={landingPageData.Team} />
-      <Contact data={landingPageData.Contact} />
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navigation />
+              <Header data={landingPageData.Header} />
+              <Booking />
+              <Features data={landingPageData.Features} />
+              <About data={landingPageData.About} />
+              <Services data={landingPageData.Services} />
+              <Gallery data={landingPageData.Gallery} />
+              <Testimonials data={landingPageData.Testimonials} />
+              <Team data={landingPageData.Team} />
+              <Contact data={landingPageData.Contact} />
+            </>
+          }
+        />
+        <Route
+          path="/booking"
+          element={
+            <>
+              <Navigation />
+              <BookingPage />
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 

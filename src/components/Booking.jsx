@@ -33,8 +33,8 @@ export const Booking = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("From:", fromLocation, "To:", toLocation, "Date:", travelDate);
-    // Redirect to a new page (placeholder)
-    window.location.href = "/booking";
+    // Redirect to /booking with query parameters:
+    window.location.href = `/booking?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(toLocation)}&date=${encodeURIComponent(travelDate)}`;
   };
 
   return (
