@@ -35,18 +35,7 @@ export const Booking = () => {
     <div id="booking" style={{ marginTop: '60px', padding: '40px 0', backgroundColor: '#f8f8f8' }}>
       <div className="container text-center">
         <h2 style={{ fontSize: '2.5rem', marginBottom: '30px' }}>Book Your Ride</h2>
-        <form onSubmit={handleSubmit} style={{
-          width: '90%',
-          margin: '0 auto',
-          backgroundColor: '#fff',
-          borderRadius: '50px',
-          padding: '20px 40px',
-          boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'nowrap'
-        }}>
+        <form onSubmit={handleSubmit} className="booking-form">
           {/* Pickup Location using react-select */}
           <div style={{ margin: '10px', flex: '1' }}>
             <label style={{ display: 'block', fontSize: '1.4rem', marginBottom: '5px' }}>Pickup Location</label>
