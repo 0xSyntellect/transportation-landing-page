@@ -72,7 +72,7 @@ export const Booking = () => {
     <div
       id="booking"
       style={{
-        marginTop: '-120px',
+        marginTop: '90px',
         padding: '20px 0',
         backgroundColor: '#f8f8f8',
         // Adding these two properties raises the booking container above the fixed navbar:

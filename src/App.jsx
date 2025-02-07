@@ -34,7 +34,7 @@ const App = () => {
           element={
             <>
               <Navigation />
-              <Header data={landingPageData.Header} />
+              
               <Booking />
               <Features data={landingPageData.Features} />
               <About data={landingPageData.About} />
