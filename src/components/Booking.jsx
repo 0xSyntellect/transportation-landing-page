@@ -15,28 +15,19 @@ export const Booking = () => {
     "Eminonu"
   ];
 
-  // Hardcoded date options (for simplicity)
-  const dates = [
-    "Today",
-    "Tomorrow",
-    "In 2 days",
-    "In 3 days",
-    "In 4 days",
-    "In 5 days"
-  ];
-
-  // Component state
+  // Component state now includes date and time
   const [fromLocation, setFromLocation] = useState(locations[0]);
   const [toLocation, setToLocation] = useState(locations[1]);
-  const [travelDate, setTravelDate] = useState(dates[0]);
+  const [travelDate, setTravelDate] = useState('');
+  const [travelTime, setTravelTime] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Redirect to /booking with query parameters:
-    window.location.href = `/booking?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(toLocation)}&date=${encodeURIComponent(travelDate)}`;
+    // Redirect to /booking with query parameters including date and time
+    window.location.href = `/booking?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(toLocation)}&date=${encodeURIComponent(travelDate)}&time=${encodeURIComponent(travelTime)}`;
   };
 
-  // Inline styles for larger fonts and controls
+  // Inline styles for larger fonts and improved controls
   const formContainerStyle = {
     width: '80%',
     margin: '0 auto',
@@ -51,20 +42,23 @@ export const Booking = () => {
   };
 
   const formGroupStyle = {
-    margin: '0 20px 20px'
+    margin: '20px 10px 10px'
   };
 
-  const selectStyle = {
-    height: '60px',       // Increased height for dropdown
-    fontSize: '2rem',     // Larger text inside dropdown
-    padding: '0 50px',
+  // Using one common style for select and input fields
+  const inputStyle = {
+    height: '60px',
+    fontSize: '2rem',
+    padding: '0 20px',
     width: '200px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    border: '1px solid #ccc',
+    borderRadius: '4px'
   };
 
   const buttonStyle = {
-    height: '60px',       // Increased height for button
-    fontSize: '1.8rem',    // Larger button text
+    height: '60px',
+    fontSize: '1.8rem',
     padding: '0 20px'
   };
 
@@ -72,60 +66,78 @@ export const Booking = () => {
     <div
       id="booking"
       style={{
-        marginTop: '90px',
-        padding: '20px 0',
-        backgroundColor: '#f8f8f8',
-        // Adding these two properties raises the booking container above the fixed navbar:
-        position: 'relative',
-        zIndex: 9999
+        marginTop: '60px', // removed negative margin so it sits at the top
+        padding: '40px 0',
+        backgroundColor: '#f8f8f8'
       }}
     >
       <div className="container text-center">
         <h2 style={{ fontSize: '2.5rem', marginBottom: '30px' }}>Book Your Ride</h2>
         <div style={formContainerStyle}>
           <form onSubmit={handleSubmit} style={formStyle}>
+            {/* From Location */}
             <div style={formGroupStyle}>
               <label htmlFor="from" className="sr-only">From</label>
               <select
                 id="from"
                 className="form-control"
-                style={selectStyle}
+                style={inputStyle}
                 value={fromLocation}
                 onChange={(e) => setFromLocation(e.target.value)}
               >
                 {locations.map((loc, i) => (
-                  <option key={i} value={loc}>{loc}</option>
+                  <option key={i} value={loc}>
+                    {loc}
+                  </option>
                 ))}
               </select>
             </div>
+
+            {/* To Location */}
             <div style={formGroupStyle}>
               <label htmlFor="to" className="sr-only">To</label>
               <select
                 id="to"
                 className="form-control"
-                style={selectStyle}
+                style={inputStyle}
                 value={toLocation}
                 onChange={(e) => setToLocation(e.target.value)}
               >
                 {locations.map((loc, i) => (
-                  <option key={i} value={loc}>{loc}</option>
+                  <option key={i} value={loc}>
+                    {loc}
+                  </option>
                 ))}
               </select>
             </div>
+
+            {/* Date Picker */}
             <div style={formGroupStyle}>
               <label htmlFor="date" className="sr-only">Date</label>
-              <select
+              <input
                 id="date"
+                type="date"
                 className="form-control"
-                style={selectStyle}
+                style={inputStyle}
                 value={travelDate}
                 onChange={(e) => setTravelDate(e.target.value)}
-              >
-                {dates.map((dateOption, i) => (
-                  <option key={i} value={dateOption}>{dateOption}</option>
-                ))}
-              </select>
+              />
             </div>
+
+            {/* Time Picker */}
+            <div style={formGroupStyle}>
+              <label htmlFor="time" className="sr-only">Time</label>
+              <input
+                id="time"
+                type="time"
+                className="form-control"
+                style={inputStyle}
+                value={travelTime}
+                onChange={(e) => setTravelTime(e.target.value)}
+              />
+            </div>
+
+            {/* Submit Button */}
             <div style={formGroupStyle}>
               <button type="submit" className="btn btn-custom btn-lg" style={buttonStyle}>
                 Book Now
