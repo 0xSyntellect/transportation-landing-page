@@ -121,7 +121,7 @@ export const Booking = () => {
 
           {/* Book Now Button */}
           <div style={{ margin: '10px', flex: '0 0 auto' }}>
-            <button type="submit" style={{ height: '50px', fontSize: '1.6rem', padding: '0 30px' }}>
+            <button type="submit" className="btn btn-custom">
               Book Now
             </button>
           </div>
