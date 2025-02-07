@@ -36,11 +36,11 @@ export const Booking = () => {
     window.location.href = `/booking?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(toLocation)}&date=${encodeURIComponent(travelDate)}`;
   };
 
-  // Updated inline styles for larger fonts and controls
+  // Inline styles for larger fonts and controls
   const formContainerStyle = {
     width: '80%',
     margin: '0 auto',
-    fontSize: '1.8rem' // Increased overall font size for the form container
+    fontSize: '1.8rem'
   };
 
   const formStyle = {
@@ -51,25 +51,35 @@ export const Booking = () => {
   };
 
   const formGroupStyle = {
-    margin: '0 20px 20px', // Increase horizontal and vertical spacing
+    margin: '0 20px 20px'
   };
 
   const selectStyle = {
     height: '60px',       // Increased height for dropdown
-    fontSize: '2rem',    // Larger text inside dropdown
+    fontSize: '2rem',     // Larger text inside dropdown
     padding: '0 50px',
     width: '200px',
-    fontWeight: 'bold' 
+    fontWeight: 'bold'
   };
 
   const buttonStyle = {
-    height: '60px',        // Increased height for button
-    fontSize: '1.8rem',     // Larger button text
+    height: '60px',       // Increased height for button
+    fontSize: '1.8rem',    // Larger button text
     padding: '0 20px'
   };
 
   return (
-    <div id="booking" style={{ marginTop: '-120px', padding: '20px 0', backgroundColor: '#f8f8f8' }}>
+    <div
+      id="booking"
+      style={{
+        marginTop: '-120px',
+        padding: '20px 0',
+        backgroundColor: '#f8f8f8',
+        // Adding these two properties raises the booking container above the fixed navbar:
+        position: 'relative',
+        zIndex: 9999
+      }}
+    >
       <div className="container text-center">
         <h2 style={{ fontSize: '2.5rem', marginBottom: '30px' }}>Book Your Ride</h2>
         <div style={formContainerStyle}>
