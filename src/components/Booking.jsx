@@ -34,15 +34,19 @@ export const Booking = () => {
     fontSize: '1.8rem'
   };
 
+  // Updated: Each form group now uses flexDirection column
+  const formGroupStyle = {
+    margin: '20px 10px 10px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center' // Change to 'flex-start' if you prefer left alignment
+  };
+
   const formStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap'
-  };
-
-  const formGroupStyle = {
-    margin: '20px 10px 10px'
   };
 
   // Using one common style for select and input fields
@@ -62,11 +66,18 @@ export const Booking = () => {
     padding: '0 20px'
   };
 
+  // Style for visible labels
+  const labelStyle = {
+    display: 'block',
+    marginBottom: '8px',
+    fontSize: '1.2rem'
+  };
+
   return (
     <div
       id="booking"
       style={{
-        marginTop: '60px', // removed negative margin so it sits at the top
+        marginTop: '60px',
         padding: '40px 0',
         backgroundColor: '#f8f8f8'
       }}
@@ -75,9 +86,9 @@ export const Booking = () => {
         <h2 style={{ fontSize: '2.5rem', marginBottom: '30px' }}>Book Your Ride</h2>
         <div style={formContainerStyle}>
           <form onSubmit={handleSubmit} style={formStyle}>
-            {/* From Location */}
+            {/* Pickup Location */}
             <div style={formGroupStyle}>
-              <label htmlFor="from" className="sr-only">From</label>
+              <label htmlFor="from" style={labelStyle}>Pickup Location</label>
               <select
                 id="from"
                 className="form-control"
@@ -93,9 +104,9 @@ export const Booking = () => {
               </select>
             </div>
 
-            {/* To Location */}
+            {/* Destination Location */}
             <div style={formGroupStyle}>
-              <label htmlFor="to" className="sr-only">To</label>
+              <label htmlFor="to" style={labelStyle}>Destination Location</label>
               <select
                 id="to"
                 className="form-control"
@@ -111,9 +122,9 @@ export const Booking = () => {
               </select>
             </div>
 
-            {/* Date Picker */}
+            {/* Pick Up Date */}
             <div style={formGroupStyle}>
-              <label htmlFor="date" className="sr-only">Date</label>
+              <label htmlFor="date" style={labelStyle}>Pick Up Date</label>
               <input
                 id="date"
                 type="date"
@@ -124,9 +135,9 @@ export const Booking = () => {
               />
             </div>
 
-            {/* Time Picker */}
+            {/* Pick Up Time */}
             <div style={formGroupStyle}>
-              <label htmlFor="time" className="sr-only">Time</label>
+              <label htmlFor="time" style={labelStyle}>Pick Up Time</label>
               <input
                 id="time"
                 type="time"
