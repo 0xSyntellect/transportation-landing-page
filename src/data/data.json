@@ -3,21 +3,22 @@
     "title": "Tuncberk Transportation",
     "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
   },
-  "About": {
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "Why": [
-      "Lorem ipsum dolor",
-      "Tempor incididunt",
-      "Lorem ipsum dolor",
-      "Incididunt ut labore"
-    ],
-    "Why2": [
-      "Aliquip ex ea commodo",
-      "Lorem ipsum dolor",
-      "Exercitation ullamco",
-      "Lorem ipsum dolor"
-    ]
-  },
+    "About": {
+        "paragraph": "We are a premium transportation service dedicated to providing reliable, comfortable, and professional travel experiences. Whether you're heading to the airport, attending an important event, or exploring the city, we ensure a smooth and stress-free journey with top-quality vehicles and experienced chauffeurs. Our commitment to excellence, punctuality, and customer satisfaction sets us apart, making us the preferred choice for individuals and businesses alike.",
+        "Why": [
+          "Reliable and punctual service",
+          "Luxurious and well-maintained fleet",
+          "Professional and courteous chauffeurs",
+          "Tailored travel solutions for every need"
+        ],
+        "Why2": [
+          "24/7 availability for your convenience",
+          "Seamless booking and customer support",
+          "Competitive pricing with premium service",
+          "Commitment to safety and comfort"
+        ]
+    },
+
   "Gallery": [
     {
       "title": "Project Title",
