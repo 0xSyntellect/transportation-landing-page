@@ -1,121 +1,106 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
+import './Booking.css'; // <-- We'll put the styling in Booking.css
 
 export const Booking = () => {
-  const locations = [
-    "Taksim",
-    "Kadikoy",
-    "Besiktas",
-    "Sisli",
-    "Uskudar",
-    "Levent",
-    "Sariyer",
-    "Bakirkoy",
-    "Eminonu"
-  ];
-
-  // Create options for react-select
-  const locationOptions = locations.map(loc => ({ value: loc, label: loc }));
-
-  const [fromLocation, setFromLocation] = useState({ value: locations[0], label: locations[0] });
-  const [toLocation, setToLocation] = useState(null);
-  const [travelDate, setTravelDate] = useState('');
-  const [travelTime, setTravelTime] = useState('');
+  const [activeTab, setActiveTab] = useState('istanbul');
+  const [fromLocation, setFromLocation] = useState('');
+  const [toLocation, setToLocation] = useState('');
+  const [passengerCount, setPassengerCount] = useState(1);
+  const [roundTrip, setRoundTrip] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const destination = toLocation ? toLocation.value : '';
-    window.location.href = `/booking?from=${encodeURIComponent(fromLocation.value)}&to=${encodeURIComponent(destination)}&date=${encodeURIComponent(travelDate)}&time=${encodeURIComponent(travelTime)}`;
+    // handle your form submission here, e.g. redirect or API call
+    alert(`From: ${fromLocation}\nTo: ${toLocation}\nPassengers: ${passengerCount}\nRound Trip: ${roundTrip}`);
   };
 
-  // (Keep the same container and group styles as before)
-  // ...
+  // For demonstration, we just switch "activeTab" on click. You can expand
+  // this logic to load different content or default pickup points per tab, etc.
+  const tabs = [
+    { key: 'istanbul', label: 'Istanbul Transfer' },
+    { key: 'sabiha', label: 'Sabiha Transfer' },
+    { key: 'cappadocia', label: 'Cappadocia Transfer' },
+    { key: 'antalya', label: 'Antalya Transfer' },
+    { key: 'car', label: 'Car with Driver' },
+  ];
 
   return (
-    <div id="booking" style={{ marginTop: '60px', padding: '40px 0', backgroundColor: '#f8f8f8' }}>
-      <div className="container text-center">
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '30px' }}>Book Your Ride</h2>
-        <form onSubmit={handleSubmit} className="booking-form">
-          {/* Pickup Location using react-select */}
-          <div style={{ margin: '10px', flex: '1' }}>
-            <label style={{ display: 'block', fontSize: '1.4rem', marginBottom: '5px' }}>Pickup Location</label>
-            <Select
-              options={locationOptions}
-              value={fromLocation}
-              onChange={(selectedOption) => setFromLocation(selectedOption)}
-              styles={{ control: (provided) => ({ ...provided, height: '50px',width:"100%", fontSize: '1.6rem' }) }}
-            />
-          </div>
+    <div className="booking-card">
+      {/* Tabs Row */}
+      <ul className="booking-tabs">
+        {tabs.map((tab) => (
+          <li
+            key={tab.key}
+            onClick={() => setActiveTab(tab.key)}
+            className={activeTab === tab.key ? 'active' : ''}
+          >
+            {tab.label}
+          </li>
+        ))}
+      </ul>
 
-          {/* Destination Location using react-select for autocomplete */}
-          <div style={{ margin: '10px', flex: '1' }}>
-            <label style={{ display: 'block', fontSize: '1.4rem', marginBottom: '5px' }}>Destination Location</label>
-            <Select
-              options={locationOptions}
-              value={fromLocation}
-              onChange={(selectedOption) => setFromLocation(selectedOption)}
-              styles={{
-                control: (provided) => ({
-                  ...provided,
-                  height: '50px',
-                  width:'100%',
-                  minHeight: '50px',
-                  fontSize: '1.6rem',
-                  padding: '0 15px'
-                }),
-                placeholder: (provided) => ({
-                  ...provided,
-                  fontSize: '1.6rem'
-                })
-              }}            />
-          </div>
-
-          {/* Date Picker */}
-          <div style={{ margin: '10px', flex: '1' }}>
-            <label style={{ display: 'block', fontSize: '1.4rem', marginBottom: '5px' }}>Pick Up Date</label>
+      {/* The Booking Form */}
+      <form onSubmit={handleSubmit} className="booking-form">
+        {/* FROM */}
+        <div className="form-group">
+          <label>From</label>
+          <div className="input-icon">
+            <i className="fa fa-map-marker"></i>
             <input
-              type="date"
-              style={{
-                height: '50px',
-                fontSize: '1.6rem',
-                padding: '0 15px',
-                width: '100%',
-                fontWeight: 'bold',
-                border: '1px solid #ccc',
-                borderRadius: '4px'
-              }}
-              value={travelDate}
-              onChange={(e) => setTravelDate(e.target.value)}
+              type="text"
+              value={fromLocation}
+              onChange={(e) => setFromLocation(e.target.value)}
+              placeholder="Istanbul Airport (IST)"
             />
           </div>
+        </div>
 
-          {/* Time Picker */}
-          <div style={{ margin: '10px', flex: '1' }}>
-            <label style={{ display: 'block', fontSize: '1.4rem', marginBottom: '5px' }}>Pick Up Time</label>
+        {/* TO */}
+        <div className="form-group">
+          <label>To</label>
+          <div className="input-icon">
+            <i className="fa fa-map-marker"></i>
             <input
-              type="time"
-              style={{
-                height: '50px',
-                fontSize: '1.6rem',
-                padding: '0 15px',
-                width: '100%',
-                fontWeight: 'bold',
-                border: '1px solid #ccc',
-                borderRadius: '4px'
-              }}
-              value={travelTime}
-              onChange={(e) => setTravelTime(e.target.value)}
+              type="text"
+              value={toLocation}
+              onChange={(e) => setToLocation(e.target.value)}
+              placeholder="Airport, Hotel or District..."
             />
           </div>
+        </div>
 
-          {/* Book Now Button */}
-          <div style={{ margin: '10px', flex: '0 0 auto' }}>
-            <button type="submit" className="btn btn-custom">
-              Book Now
+        {/* PASSENGERS */}
+        <div className="form-group passenger-group">
+          <label>Passenger</label>
+          <div className="passenger-input">
+            <button
+              type="button"
+              onClick={() => setPassengerCount(Math.max(1, passengerCount - 1))}
+            >
+              –
+            </button>
+            <span>{passengerCount}</span>
+            <button type="button" onClick={() => setPassengerCount(passengerCount + 1)}>
+              +
             </button>
           </div>
-        </form>
-      </div>
+        </div>
+
+        {/* ROUND TRIP CHECKBOX */}
+        <div className="form-group round-trip-group">
+          <label>Round Trip</label>
+          <input
+            type="checkbox"
+            checked={roundTrip}
+            onChange={() => setRoundTrip(!roundTrip)}
+          />
+        </div>
+
+        {/* SUBMIT BUTTON */}
+        <button type="submit" className="book-now-btn">
+          BOOK NOW
+        </button>
+      </form>
     </div>
   );
 };

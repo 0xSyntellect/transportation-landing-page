@@ -1,8 +1,10 @@
 // TODO: when user selects from booking form, popup forms and asks if they want return transfer for a discount ? can always book later but limited time offer.
-payment
-live chat
-registration
 
+live chat
+whatsap iletişim
+
+registration
+payment(çok sonra)
 
 
 https://habibicometopoland.com/

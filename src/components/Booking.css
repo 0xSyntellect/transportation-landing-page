@@ -1,0 +1,133 @@
+/***** CARD WRAPPER *****/
+.booking-card {
+    margin-top: 20000px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    max-width: 1000px; /* adjust to your preference */
+    margin: 2rem auto; /* centers the card */
+  }
+  
+  /***** TABS AT THE TOP *****/
+  .booking-tabs {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .booking-tabs li {
+    margin-right: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #666;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  
+  .booking-tabs li:hover {
+    color: #000;
+  }
+  
+  .booking-tabs li.active {
+    color: #000;
+    border-bottom: 2px solid #ffcc00; /* highlight color for the active tab */
+  }
+  
+  /***** FORM LAYOUT *****/
+  .booking-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap; /* so it wraps on smaller screens */
+    gap: 1rem; /* spacing between form fields */
+  }
+  
+  /* Each label + input is a "form-group" */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+  }
+  
+  /* The label text above each input */
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  
+  /***** ICON INSIDE INPUT *****/
+  .input-icon {
+    position: relative;
+  }
+  .input-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  .input-icon input {
+    padding-left: 35px; /* ensure space for the icon */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 0.95rem;
+    outline: none;
+  }
+  
+  /***** PASSENGER +/- BUTTONS *****/
+  .passenger-group {
+    align-items: flex-start;
+  }
+  .passenger-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .passenger-input button {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+  }
+  .passenger-input span {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  /***** ROUND TRIP CHECKBOX *****/
+  .round-trip-group {
+    flex-direction: row;
+    align-items: center;
+  }
+  .round-trip-group label {
+    margin-right: 8px;
+    font-weight: 600;
+  }
+  
+  /***** BOOK NOW BUTTON *****/
+  .book-now-btn {
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 40px;
+    transition: background 0.2s;
+  }
+  .book-now-btn:hover {
+    background: #ffdb4d;
+  }
+  
