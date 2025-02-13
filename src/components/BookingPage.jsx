@@ -38,7 +38,7 @@ export const BookingPage = () => {
     textAlign: 'center',
     margin: '10px',
     boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
-    width: '300px'
+    width: '400px'
   };
 
   const imgStyle = {
@@ -50,7 +50,7 @@ export const BookingPage = () => {
   return (
     <div>
       {/* Upward section with the selected booking details */}
-      <div style={{ padding: '20px', backgroundColor: '#f0f0f0', textAlign: 'center' }}>
+      <div style={{ padding: '20px', backgroundColor: '#f0f0f0', textAlign: 'center' ,marginTop:'20px'}}>
         <h2>Your Booking Details</h2>
         <p><strong>From:</strong> {fromLocation}</p>
         <p><strong>To:</strong> {toLocation}</p>
