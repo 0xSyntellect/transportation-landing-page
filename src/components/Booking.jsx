@@ -1,5 +1,7 @@
+// src/components/Booking.jsx
 import React, { useState } from 'react';
-import './Booking.css'; // <-- We'll put the styling in Booking.css
+import { useNavigate } from 'react-router-dom';  // <-- Import useNavigate
+import './Booking.css'; // <-- Styling for the booking component
 
 export const Booking = () => {
   const [activeTab, setActiveTab] = useState('istanbul');
@@ -8,14 +10,17 @@ export const Booking = () => {
   const [passengerCount, setPassengerCount] = useState(1);
   const [roundTrip, setRoundTrip] = useState(false);
 
+  // Initialize the navigation function
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handle your form submission here, e.g. redirect or API call
-    alert(`From: ${fromLocation}\nTo: ${toLocation}\nPassengers: ${passengerCount}\nRound Trip: ${roundTrip}`);
+    // Navigate to the booking page with query parameters
+    navigate(
+      `/booking?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(toLocation)}&passengers=${passengerCount}&roundTrip=${roundTrip}`
+    );
   };
 
-  // For demonstration, we just switch "activeTab" on click. You can expand
-  // this logic to load different content or default pickup points per tab, etc.
   const tabs = [
     { key: 'istanbul', label: 'Istanbul Transfer' },
     { key: 'sabiha', label: 'Sabiha Transfer' },

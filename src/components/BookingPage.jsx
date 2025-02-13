@@ -14,19 +14,19 @@ export const BookingPage = () => {
       type: 'Sedan',
       pax: 'Up to 4 pax',
       price: '$50',
-      img: 'img/vehicles/sedan.jpg' // Place an image in public/img/vehicles/sedan.jpg
+      img: 'img/vehicles/sedan.jpeg' // Place an image in public/img/vehicles/sedan.jpg
     },
     {
       type: 'Minivan',
       pax: 'Up to 6 pax',
       price: '$80',
-      img: 'img/vehicles/minivan.jpg' // Place an image in public/img/vehicles/minivan.jpg
+      img: 'img/vehicles/minivan.jpeg' // Place an image in public/img/vehicles/minivan.jpg
     },
     {
-      type: 'Large Sedan',
+      type: 'Sprinter',
       pax: 'Up to 10 pax',
       price: '$120',
-      img: 'img/vehicles/large-sedan.jpg' // Place an image in public/img/vehicles/large-sedan.jpg
+      img: 'img/vehicles/sprinter.png' // Place an image in public/img/vehicles/large-sedan.jpg
     }
   ];
 
