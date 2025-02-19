@@ -2,55 +2,40 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ProgressBar } from "./ProgressBar";
+import "./BookingPage.css"; // <-- Import your new CSS file here
 
 export const BookingPage = () => {
-  // Retrieve query parameters using URLSearchParams:
+  // Retrieve query parameters
   const params = new URLSearchParams(window.location.search);
   const fromLocation = params.get("from") || "N/A";
   const toLocation = params.get("to") || "N/A";
   const travelDate = params.get("date") || "N/A";
 
-  // Data for the three vehicle categories:
+  // Data for the vehicle categories
   const vehicleCategories = [
     {
       type: "Sedan",
       pax: "Up to 4 pax",
       price: "$50",
-      img: "img/vehicles/sedan.jpeg"
+      img: "img/vehicles/sedan.jpeg",
     },
     {
       type: "Minivan",
       pax: "Up to 6 pax",
       price: "$80",
-      img: "img/vehicles/minivan.jpeg"
+      img: "img/vehicles/minivan.jpeg",
     },
     {
       type: "Sprinter",
       pax: "Up to 10 pax",
       price: "$120",
-      img: "img/vehicles/sprinter.png"
-    }
+      img: "img/vehicles/sprinter.png",
+    },
   ];
 
   const navigate = useNavigate();
 
-  const cardStyle = {
-    border: "1px solid #ddd",
-    borderRadius: "8px",
-    padding: "20px",
-    textAlign: "center",
-    margin: "10px",
-    boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-    width: "400px"
-  };
-
-  const imgStyle = {
-    width: "100%",
-    height: "auto",
-    borderRadius: "8px 8px 0 0"
-  };
-
-  // When a vehicle is selected, navigate to the checkout page
+  // When user clicks "Select", go to Checkout route
   const handleSelectVehicle = (vehicle) => {
     navigate(
       `/checkout?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(
@@ -61,15 +46,8 @@ export const BookingPage = () => {
 
   return (
     <div>
-      {/* Booking details summary */}
-      <div
-        style={{
-          padding: "20px",
-          backgroundColor: "#f0f0f0",
-          textAlign: "center",
-          marginTop: "20px"
-        }}
-      >
+      {/* Top summary section */}
+      <div className="bookingpage-summary">
         <h2>Your Booking Details</h2>
         <p>
           <strong>From:</strong> {fromLocation}
@@ -82,18 +60,18 @@ export const BookingPage = () => {
         </p>
       </div>
 
-      {/* Progress Bar showing step 2 */}
-      <div style={{ padding: "0 20px" }}>
+      {/* Step 2 progress bar */}
+      <div className="bookingpage-progressbar">
         <ProgressBar currentStep={2} />
       </div>
 
-      {/* Vehicle category selection */}
-      <div style={{ padding: "20px", textAlign: "center" }}>
+      {/* Vehicle selection grid */}
+      <div className="vehicle-selection">
         <h2>Select Your Vehicle</h2>
-        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
+        <div className="vehicle-cards-container">
           {vehicleCategories.map((vehicle, index) => (
-            <div key={index} style={cardStyle}>
-              <img src={vehicle.img} alt={vehicle.type} style={imgStyle} />
+            <div key={index} className="vehicle-card">
+              <img src={vehicle.img} alt={vehicle.type} className="vehicle-img" />
               <h3>{vehicle.type}</h3>
               <p>{vehicle.pax}</p>
               <p>

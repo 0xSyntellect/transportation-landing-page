@@ -23,10 +23,7 @@ export const Booking = () => {
 
   const tabs = [
     { key: 'istanbul', label: 'Istanbul Transfer' },
-    { key: 'sabiha', label: 'Sabiha Transfer' },
-    { key: 'cappadocia', label: 'Cappadocia Transfer' },
-    { key: 'antalya', label: 'Antalya Transfer' },
-    { key: 'car', label: 'Car with Driver' },
+    { key: 'hourly', label: 'Hourly' },
   ];
 
   return (
