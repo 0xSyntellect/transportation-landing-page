@@ -17,19 +17,19 @@ export const BookingPage = () => {
       type: "Sedan",
       pax: "Up to 4 pax",
       price: "$50",
-      img: "img/vehicles/sedan.jpeg",
+      img: "/img/vehicles/sedan.jpeg",
     },
     {
       type: "Minivan",
       pax: "Up to 6 pax",
       price: "$80",
-      img: "img/vehicles/minivan.jpeg",
+      img: "/img/vehicles/minivan.jpeg",
     },
     {
       type: "Sprinter",
       pax: "Up to 10 pax",
       price: "$120",
-      img: "img/vehicles/sprinter.png",
+      img: "/img/vehicles/sprinter.png",
     },
   ];
 
