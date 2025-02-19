@@ -1,0 +1,49 @@
+/* src/components/Checkout.css */
+.checkout-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .booking-summary {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    color: #000000; /* Change this value to your desired color */
+  }
+
+  
+  .form-group input {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .complete-booking-btn {
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .complete-booking-btn:hover {
+    background-color: #ffdb4d;
+  }
+  

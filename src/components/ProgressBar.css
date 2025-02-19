@@ -1,0 +1,107 @@
+/* 
+  This outer container simply centers the entire progress bar on the page 
+  and provides vertical spacing. 
+  - Adjust margin to move the bar up/down.
+*/
+.progress-bar-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;  /* Pushes progress bar down to avoid navbar overlay */
+    margin-bottom: 20px;
+    transform: translateX(-180px);
+  }
+  
+  /* 
+    The main wrapper for the steps. 
+    - align-items: center ensures circles/labels line up horizontally. 
+  */
+  .progress-bar {
+    display: flex;          
+    align-items: center;    
+  }
+  
+  /* 
+    Each "step" includes the circle and its label. 
+    - flex-direction: column puts label under the circle. 
+  */
+  .step {
+    position: relative;       /* needed for the ::after line positioning */
+    display: flex;
+    flex-direction: column;   /* circle above label */
+    align-items: center;      /* center circle & label horizontally */
+  }
+  
+  /* 
+    This adds spacing between steps, except for the last one. 
+    - margin-right: 80px is the distance between the centers of adjacent circles. 
+    Increase or decrease this for more/less spacing.
+  */
+  .step:not(:last-child) {
+    margin-right: 80px; 
+  }
+  
+  /* 
+    The connecting line between each pair of circles. 
+    - top: 20px is half of 40px circle height, placing line in circle's center.
+    - right: -40px is half of the 80px gap, so the line starts in the circle's center.
+    - width: 80px matches the gap, so it ends in the next circle's center.
+    - height: 4px is the thickness of the line.
+    - background-color: #ccc is the default line color (light gray).
+  */
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 20px;            
+    right: -100px;         
+    width: 150px;          
+    height: 4px;
+    background-color: #ccc;
+    z-index: -1;          /* keeps the line behind the circle elements */
+  }
+  
+  /* 
+    When the step is "completed," we color the connecting line gold. 
+    - Adjust to your brand color if desired.
+  */
+  .step.completed:not(:last-child)::after {
+    background-color: #ffcc00;
+  }
+  
+  /* 
+    The circle itself. 
+    - width/height: 40px sets its size. 
+    - border-radius: 50% makes it a perfect circle.
+    - background-color: #ccc is default circle color (light gray).
+    - line-height: 40px ensures text is vertically centered.
+    - color: #fff is the text color inside the circle.
+  */
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    line-height: 40px;  
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  /* 
+    When a step is completed, turn the circle gold. 
+    - You can change this color to match your theme.
+  */
+  .step.completed .circle {
+    background-color: #ffcc00;
+  }
+  
+  /* 
+    The label that appears under the circle. 
+    - margin-top: 8px controls space between circle & label.
+    - font-size: 0.9rem sets text size.
+  */
+  .label {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #0000;
+  }
+  

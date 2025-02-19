@@ -5,6 +5,7 @@ import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 import { Booking } from "./components/Booking";
 import { BookingPage } from "./components/BookingPage";
+import { Checkout } from "./components/Checkout";
 import { Features } from "./components/features";
 import { About } from "./components/about";
 import { Services } from "./components/services";
@@ -34,7 +35,7 @@ const App = () => {
           element={
             <>
               <Navigation />
-              
+              <Header data={landingPageData.Header} />
               <Booking />
               <Features data={landingPageData.Features} />
               <About data={landingPageData.About} />
@@ -51,6 +52,15 @@ const App = () => {
             <>
               <Navigation />
               <BookingPage />
+            </>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <>
+              <Navigation />
+              <Checkout />
             </>
           }
         />
