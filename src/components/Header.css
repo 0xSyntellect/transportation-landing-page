@@ -1,0 +1,42 @@
+/* src/components/Header.css */
+
+/* Removed background from CSS so we can use an import in JSX */
+
+#header {
+    /* We'll apply the background in the Header.jsx inline style */
+  }
+  
+  #header .intro {
+    min-height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* The semi-transparent overlay covering the background image */
+  #header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  /* Intro text sits above the overlay */
+  #header .intro-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    /* Adjust for how high/low you want the text + booking form */
+    padding-top: 2px;
+    padding-top: 80px;
+  }
+  
+  /* Example: override booking card margin so it sits higher */
+  #header .booking-card {
+    margin-top: -100px;
+  }
+  

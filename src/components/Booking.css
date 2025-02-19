@@ -3,7 +3,7 @@
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    padding: 1rem 2rem;
+    padding: 0.1rem 2rem;
     max-width: 1000px; /* adjust to your preference */
     margin: 60px auto 5rem auto;  /* centers the card */
   }
