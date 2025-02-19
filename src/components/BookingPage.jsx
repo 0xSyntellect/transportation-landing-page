@@ -2,7 +2,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ProgressBar } from "./ProgressBar";
-import "./BookingPage.css"; // <-- Import your new CSS file here
+import "./BookingPage.css";
+
+// Import images from the src folder
+import sedanImg from "../img/vehicles/sedan.jpeg";
+import minivanImg from "../img/vehicles/minivan.jpeg";
+import sprinterImg from "../img/vehicles/sprinter.png";
 
 export const BookingPage = () => {
   // Retrieve query parameters
@@ -11,31 +16,31 @@ export const BookingPage = () => {
   const toLocation = params.get("to") || "N/A";
   const travelDate = params.get("date") || "N/A";
 
-  // Data for the vehicle categories
+  // Data for the vehicle categories using imported images
   const vehicleCategories = [
     {
       type: "Sedan",
       pax: "Up to 4 pax",
       price: "$50",
-      img: "/img/vehicles/sedan.jpeg",
+      img: sedanImg,
     },
     {
       type: "Minivan",
       pax: "Up to 6 pax",
       price: "$80",
-      img: "/img/vehicles/minivan.jpeg",
+      img: minivanImg,
     },
     {
       type: "Sprinter",
       pax: "Up to 10 pax",
       price: "$120",
-      img: "/img/vehicles/sprinter.png",
+      img: sprinterImg,
     },
   ];
 
   const navigate = useNavigate();
 
-  // When user clicks "Select", go to Checkout route
+  // When user clicks "Select", navigate to checkout
   const handleSelectVehicle = (vehicle) => {
     navigate(
       `/checkout?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(
