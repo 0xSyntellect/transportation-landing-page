@@ -5,7 +5,7 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     padding: 1rem 2rem;
     max-width: 1000px; /* adjust to your preference */
-    margin: 120px auto 2rem auto;  /* centers the card */
+    margin: 60px auto 5rem auto;  /* centers the card */
   }
   
   /***** TABS AT THE TOP *****/
