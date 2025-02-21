@@ -28,7 +28,7 @@
   
   /* Each vehicle card's outer style (border, box-shadow, etc.) */
   .vehicle-card {
-    border: 1px solid #ddd;
+    border: 10px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
