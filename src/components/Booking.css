@@ -90,18 +90,18 @@
   }
   .passenger-input button {
     background: #eee;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 32px;
-    height: 32px;
+    border: 5px solid #ccc;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     outline: none;
   }
   .passenger-input span {
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.9rem;
+    font-weight: 900;
   }
   
   /***** ROUND TRIP CHECKBOX *****/
@@ -110,7 +110,7 @@
     align-items: center;
   }
   .round-trip-group label {
-    margin-right: 8px;
+    margin-right: 10px;
     font-weight: 600;
   }
   
