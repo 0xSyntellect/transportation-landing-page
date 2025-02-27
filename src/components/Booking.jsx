@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Booking.css';
-import { AutoCompleteInput } from './AutoCompleteInput'; // import the autocomplete component
+import { AutoCompleteInput } from './AutoCompleteInput';
 
 export const Booking = () => {
   const [activeTab, setActiveTab] = useState('istanbul');
@@ -15,7 +15,6 @@ export const Booking = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Navigate to the booking page with query parameters
     navigate(
       `/booking?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(toLocation)}&passengers=${passengerCount}&roundTrip=${roundTrip}`
     );
@@ -47,11 +46,11 @@ export const Booking = () => {
         <div className="form-group">
           <label>From</label>
           <div className="input-icon">
-            <i className="fa fa-map-marker"></i>
             <AutoCompleteInput
               value={fromLocation}
               onChange={setFromLocation}
               placeholder="Istanbul Airport (IST)"
+              iconClass="fa fa-map-marker"
             />
           </div>
         </div>
@@ -60,11 +59,11 @@ export const Booking = () => {
         <div className="form-group">
           <label>To</label>
           <div className="input-icon">
-            <i className="fa fa-map-marker"></i>
             <AutoCompleteInput
               value={toLocation}
               onChange={setToLocation}
               placeholder="Airport, Hotel or District..."
+              iconClass="fa fa-map-marker"
             />
           </div>
         </div>

@@ -1,25 +1,21 @@
 // src/components/AutoCompleteInput.jsx
 import React, { useState, useEffect, useRef } from 'react';
 
-export const AutoCompleteInput = ({ value, onChange, placeholder }) => {
+export const AutoCompleteInput = ({ value, onChange, placeholder, iconClass }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const debounceTimer = useRef(null);
 
   useEffect(() => {
-    // If the input is empty, clear suggestions.
     if (value.trim().length === 0) {
       setSuggestions([]);
       return;
     }
 
-    // Debounce the API call
     if (debounceTimer.current) {
       clearTimeout(debounceTimer.current);
     }
     debounceTimer.current = setTimeout(() => {
-      // The viewbox parameters here restrict the search area to Istanbul.
-      // Format: viewbox=[minLon],[maxLat],[maxLon],[minLat] with bounded=1.
       const url = `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&viewbox=28.5,41.2,29.7,40.7&bounded=1&q=${encodeURIComponent(value)}`;
       fetch(url)
         .then(response => response.json())
@@ -33,7 +29,7 @@ export const AutoCompleteInput = ({ value, onChange, placeholder }) => {
     return () => clearTimeout(debounceTimer.current);
   }, [value]);
 
-  const handleSuggestionClick = (suggestion) => {
+  const handleSuggestionClick = suggestion => {
     onChange(suggestion.display_name);
     setSuggestions([]);
     setShowSuggestions(false);
@@ -41,20 +37,37 @@ export const AutoCompleteInput = ({ value, onChange, placeholder }) => {
 
   return (
     <div className="autocomplete-wrapper" style={{ position: 'relative' }}>
+      {iconClass && (
+        <i
+          className={iconClass}
+          style={{
+            position: 'absolute',
+            left: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            color: '#666',
+            zIndex: 2,
+          }}
+        ></i>
+      )}
       <input
         type="text"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={e => onChange(e.target.value)}
         placeholder={placeholder}
-        onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
-        onBlur={() => {
-          // Delay hiding suggestions to allow click events to register
-          setTimeout(() => setShowSuggestions(false), 200);
+        style={{
+          paddingLeft: iconClass ? '35px' : '10px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          height: '40px',
+          fontSize: '0.95rem',
+          outline: 'none'
         }}
+        onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
+        onBlur={() => { setTimeout(() => setShowSuggestions(false), 200); }}
       />
       {showSuggestions && suggestions.length > 0 && (
         <ul
-          className="suggestions-list"
           style={{
             position: 'absolute',
             top: '100%',
@@ -64,10 +77,10 @@ export const AutoCompleteInput = ({ value, onChange, placeholder }) => {
             border: '1px solid #ccc',
             maxHeight: '200px',
             overflowY: 'auto',
-            zIndex: 10,
+            zIndex: 1,
             listStyle: 'none',
-            padding: '0',
-            margin: '0',
+            padding: 0,
+            margin: 0,
           }}
         >
           {suggestions.map((suggestion, index) => (
