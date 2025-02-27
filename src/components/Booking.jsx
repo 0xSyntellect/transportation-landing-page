@@ -1,7 +1,8 @@
 // src/components/Booking.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // <-- Import useNavigate
-import './Booking.css'; // <-- Styling for the booking component
+import { useNavigate } from 'react-router-dom';
+import './Booking.css';
+import { AutoCompleteInput } from './AutoCompleteInput'; // import the autocomplete component
 
 export const Booking = () => {
   const [activeTab, setActiveTab] = useState('istanbul');
@@ -10,7 +11,6 @@ export const Booking = () => {
   const [passengerCount, setPassengerCount] = useState(1);
   const [roundTrip, setRoundTrip] = useState(false);
 
-  // Initialize the navigation function
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -48,10 +48,9 @@ export const Booking = () => {
           <label>From</label>
           <div className="input-icon">
             <i className="fa fa-map-marker"></i>
-            <input
-              type="text"
+            <AutoCompleteInput
               value={fromLocation}
-              onChange={(e) => setFromLocation(e.target.value)}
+              onChange={setFromLocation}
               placeholder="Istanbul Airport (IST)"
             />
           </div>
@@ -62,10 +61,9 @@ export const Booking = () => {
           <label>To</label>
           <div className="input-icon">
             <i className="fa fa-map-marker"></i>
-            <input
-              type="text"
+            <AutoCompleteInput
               value={toLocation}
-              onChange={(e) => setToLocation(e.target.value)}
+              onChange={setToLocation}
               placeholder="Airport, Hotel or District..."
             />
           </div>

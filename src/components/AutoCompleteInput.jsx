@@ -1,4 +1,4 @@
-// File: src/components/AutoCompleteInput.jsx
+// src/components/AutoCompleteInput.jsx
 import React, { useState, useEffect, useRef } from 'react';
 
 export const AutoCompleteInput = ({ value, onChange, placeholder }) => {
@@ -18,14 +18,17 @@ export const AutoCompleteInput = ({ value, onChange, placeholder }) => {
       clearTimeout(debounceTimer.current);
     }
     debounceTimer.current = setTimeout(() => {
-      fetch(`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(value)}`)
+      // The viewbox parameters here restrict the search area to Istanbul.
+      // Format: viewbox=[minLon],[maxLat],[maxLon],[minLat] with bounded=1.
+      const url = `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&viewbox=28.5,41.2,29.7,40.7&bounded=1&q=${encodeURIComponent(value)}`;
+      fetch(url)
         .then(response => response.json())
         .then(data => {
           setSuggestions(data);
           setShowSuggestions(true);
         })
         .catch(err => console.error("Error fetching suggestions:", err));
-    }, 500); // 500ms delay
+    }, 500);
 
     return () => clearTimeout(debounceTimer.current);
   }, [value]);
@@ -45,7 +48,7 @@ export const AutoCompleteInput = ({ value, onChange, placeholder }) => {
         placeholder={placeholder}
         onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
         onBlur={() => {
-          // delay hiding suggestions so that click event can register
+          // Delay hiding suggestions to allow click events to register
           setTimeout(() => setShowSuggestions(false), 200);
         }}
       />
