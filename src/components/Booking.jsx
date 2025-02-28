@@ -9,14 +9,28 @@ export const Booking = () => {
   const [fromLocation, setFromLocation] = useState('');
   const [toLocation, setToLocation] = useState('');
   const [passengerCount, setPassengerCount] = useState(1);
-  const [roundTrip, setRoundTrip] = useState(false);
+
+  // State for date & time with default set to now + 2 hours.
+  const [travelDate, setTravelDate] = useState(() => {
+    const now = new Date();
+    now.setHours(now.getHours() + 2);
+    // Format to "YYYY-MM-DDTHH:MM" for datetime-local input
+    return now.toISOString().slice(0, 16);
+  });
+
+  // Function to compute minimum allowed datetime (now + 2 hours)
+  const getMinDateTime = () => {
+    const now = new Date();
+    now.setHours(now.getHours() + 2);
+    return now.toISOString().slice(0, 16);
+  };
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(
-      `/booking?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(toLocation)}&passengers=${passengerCount}&roundTrip=${roundTrip}`
+      `/booking?from=${encodeURIComponent(fromLocation)}&to=${encodeURIComponent(toLocation)}&passengers=${passengerCount}&date=${encodeURIComponent(travelDate)}`
     );
   };
 
@@ -68,6 +82,18 @@ export const Booking = () => {
           </div>
         </div>
 
+        {/* Date & Time Selection */}
+        <div className="form-group">
+          <label>Date &amp; Time</label>
+          <input
+            type="datetime-local"
+            value={travelDate}
+            min={getMinDateTime()}
+            onChange={(e) => setTravelDate(e.target.value)}
+            step="1800"  // 30 minute intervals (1800 seconds)
+          />
+        </div>
+
         {/* PASSENGERS */}
         <div className="form-group passenger-group">
           <label>Passenger</label>
@@ -83,16 +109,6 @@ export const Booking = () => {
               +
             </button>
           </div>
-        </div>
-
-        {/* ROUND TRIP CHECKBOX */}
-        <div className="form-group round-trip-group">
-          <label>Round Trip</label>
-          <input
-            type="checkbox"
-            checked={roundTrip}
-            onChange={() => setRoundTrip(!roundTrip)}
-          />
         </div>
 
         {/* SUBMIT BUTTON */}
