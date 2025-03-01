@@ -90,8 +90,8 @@
     gap: 0.5rem;
   }
   .passenger-input button {
-    background: #eee;
-    border: 5px solid #ccc;
+    background: #ffffff;
+    border:4px solid #ccc;
     border-radius: 10px;
     width: 45px;
     height: 45px;
@@ -131,3 +131,27 @@
     background: #ffdb4d;
   }
   
+/* Ensure datetime-local inputs match the location input styles */
+input[type="datetime-local"] {
+  height: 40px;               /* same as location inputs */
+  border: 1px solid #ccc;     /* same border */
+  border-radius: 4px;         /* same border radius */
+  font-size: 1.25rem;         /* same font size */
+  padding-left: 10px;         /* adjust as needed */
+  width: 100%;                /* fill available width */
+  box-sizing: border-box;     /* include padding and border in width */
+}
+
+
+/* For WebKit browsers (Chrome, Edge, Safari), customize the calendar icon */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(0%); /* Adjust brightness or invert colors */
+  cursor: pointer;
+}
+
+/* Optionally, remove the default appearance */
+input[type="datetime-local"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
