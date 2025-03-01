@@ -1,0 +1,20 @@
+/* navigation.css */
+
+/* Override the default navbar background and border colors */
+.navbar.navbar-default {
+    background-color: #003366 !important; /* desired background color */
+    border-color: #003366 !important;     /* desired border color */
+  }
+  
+  /* Override the brand and nav link text colors */
+  .navbar.navbar-default .navbar-brand,
+  .navbar.navbar-default .navbar-nav > li > a {
+    color: #ffffff !important;  /* desired text color */
+  }
+  
+  /* Change text color on hover */
+  .navbar.navbar-default .navbar-brand:hover,
+  .navbar.navbar-default .navbar-nav > li > a:hover {
+    color: #ffcc00 !important;  /* desired hover color */
+  }
+  

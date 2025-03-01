@@ -2,7 +2,7 @@
 .booking-card {
     background: #fff;
     border-radius: 25px;
-    border: 5px solid #95b353;
+    border: 5px solid #2d35cb;
     box-shadow: 0 4px 20px rgba(124, 128, 5, 0.1);
     padding: 0.1rem 2rem;
     max-width: 1000px; /* adjust to your preference */
@@ -69,11 +69,11 @@
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: #666;
+    color: #510cb0;
   }
   .input-icon input {
     padding-left: 35px; /* ensure space for the icon */
-    border: 1px solid #ccc;
+    border: 1px solid #510cb0;
     border-radius: 4px;
     height: 40px;
     font-size: 0.95rem;

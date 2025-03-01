@@ -1,6 +1,8 @@
+// src/components/navigation.jsx
 import React from "react";
+import "./navigation.css"; // import your custom navigation styles
 
-export const Navigation = (props) => {
+export const Navigation = () => {
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
@@ -11,15 +13,14 @@ export const Navigation = (props) => {
             data-toggle="collapse"
             data-target="#bs-example-navbar-collapse-1"
           >
-            {" "}
-            <span className="sr-only">Toggle navigation</span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
           </button>
           <a className="navbar-brand page-scroll" href="#page-top">
             PICKUP ISTANBUL
-          </a>{" "}
+          </a>
         </div>
 
         <div
@@ -27,11 +28,7 @@ export const Navigation = (props) => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
-            <li>
-              <a href="#about" className="page-scroll">
-                About
-              </a>
-            </li>
+
             <li>
               <a href="#services" className="page-scroll">
                 Services
@@ -40,6 +37,11 @@ export const Navigation = (props) => {
             <li>
               <a href="#features" className="page-scroll">
                 Features
+              </a>
+            </li>
+            <li>
+              <a href="#about" className="page-scroll">
+                About
               </a>
             </li>
             <li>
