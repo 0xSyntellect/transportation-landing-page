@@ -2,8 +2,8 @@
 .booking-card {
     background: #fff;
     border-radius: 25px;
-    border: 5px solid #088f92;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 5px solid #95b353;
+    box-shadow: 0 4px 20px rgba(124, 128, 5, 0.1);
     padding: 0.1rem 2rem;
     max-width: 1000px; /* adjust to your preference */
     margin: 60px auto 5rem auto;  /* centers the card */
@@ -50,13 +50,13 @@
   .form-group {
     display: flex;
     flex-direction: column;
-    min-width: 180px;
+    /* min-width: 180px; */
   }
   
   /* The label text above each input */
   .form-group label {
     font-size: 1.5rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.4rem; 
     font-weight: 600;
   }
   
@@ -81,9 +81,11 @@
   }
   
   /***** PASSENGER +/- BUTTONS *****/
-  .passenger-group {
-    align-items: flex-start;
+  .passenger-group label {
+    margin-bottom: 1rem; /* match other labels */
+    margin-top: 1.1px ;      /* adjust as needed */
   }
+  
   .passenger-input {
     display: flex;
     align-items: center;
