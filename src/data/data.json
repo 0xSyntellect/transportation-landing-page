@@ -19,117 +19,39 @@
         ]
     },
 
-  "Gallery": [
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/01-large.jpg",
-      "smallImage": "img/portfolio/01-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/02-large.jpg",
-      "smallImage": "img/portfolio/02-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/03-large.jpg",
-      "smallImage": "img/portfolio/03-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/04-large.jpg",
-      "smallImage": "img/portfolio/04-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/05-large.jpg",
-      "smallImage": "img/portfolio/05-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/06-large.jpg",
-      "smallImage": "img/portfolio/06-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/07-large.jpg",
-      "smallImage": "img/portfolio/07-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/08-large.jpg",
-      "smallImage": "img/portfolio/08-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/09-large.jpg",
-      "smallImage": "img/portfolio/09-small.jpg"
-    }
-  ],
   "Services": [
     {
       "icon": "fa fa-cloud-download",
       "name": "Airport Transfers",
-      "text": "Enjoy seamless and stress-free airport transfers with our reliable and punctual service. Whether arriving or departing, we ensure a smooth journey to your destination with professional chauffeurs and comfortable vehicles."
+      "text": ""
     },
     {
       "icon": "fa fa-car",
-      "name": "Event Transportation",
-      "text": "Make a lasting impression with our event transportation services. From corporate gatherings to private celebrations, we provide tailored transport solutions to ensure a smooth and stylish arrival for you and your guests."
+      "name": "Rental by the hour",
+      "text": ""
     },
     {
       "icon": "fa fa-briefcase",
       "name": "Corporate Travel",
-      "text": "Effortless and professional travel solutions for business executives and teams. Our corporate travel service prioritizes punctuality, comfort, and convenience, ensuring a productive journey every time."
+      "text": ""
     },
     {
       "icon": "fa fa-star",
       "name": "VIP Fast Track Service",
-      "text": "Experience luxury and exclusivity with our VIP Fast Track service. From priority check-in to expedited security clearance, we escort you seamlessly through the airport for a stress-free experience."
+      "text": ""
     },
     {
       "icon": "fa fa-users",
       "name": "Group Transfers",
-      "text": "Traveling with a group? Our spacious and comfortable vehicles accommodate larger parties, ensuring everyone arrives together, on time, and in style."
+      "text": ""
     },
     {
       "icon": "fa fa-globe",
       "name": "City Tours & Excursions",
-      "text": "Discover the city like never before with our private tours and excursions. Enjoy a tailored experience with knowledgeable drivers, taking you to must-see attractions and hidden gems."
+      "text": ""
     }
   ],
-  "Testimonials": [
-    {
-      "img": "img/testimonials/01.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
-    },
-    {
-      "img": "img/testimonials/02.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
-    },
-    {
-      "img": "img/testimonials/03.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
-    },
-    {
-      "img": "img/testimonials/04.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
-    },
-    {
-      "img": "img/testimonials/05.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
-    },
-    {
-      "img": "img/testimonials/06.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
-    }
-  ],
+  
   "Team": [
     {
       "img": "img/team/01.jpg",
